@@ -79,14 +79,14 @@ function App() {
       <Router>
         <ScrollToTop />
         <Route
-          render={({location}) => (
+          render="BR" => (
             <div className="Almighty-Router">
               <Navbar
                 pages={pages}
                 darkMode={darkMode}
                 setDarkMode={setDarkMode}
               />
-              <Switch location={location}>
+              <Switch location="BR">
                 {pages.map((page, index) => {
                   return (
                     <Route
