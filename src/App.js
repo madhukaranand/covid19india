@@ -79,20 +79,22 @@ function App() {
       <Router>
         <ScrollToTop />
         <Route
-          render="BR" => (
+          render={({location}) => (
             <div className="Almighty-Router">
               <Navbar
                 pages={pages}
                 darkMode={darkMode}
                 setDarkMode={setDarkMode}
               />
-              <Switch location="BR">
+              <Switch location={location}>
                 {pages.map((page, index) => {
                   return (
                     <Route
                       exact
                       path={page.pageLink}
-                      component={page.view}
+                      render={({match}) => (
+                        <page.view key={match.params.stateCode || index} />
+                      )}
                       key={index}
                     />
                   );
